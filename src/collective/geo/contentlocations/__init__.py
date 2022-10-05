@@ -1,5 +1,5 @@
 from zope.i18nmessageid import MessageFactory
-import config
+from . import config
 
 ContentLocationsMessageFactory = MessageFactory(config.PROJECTNAME)
 

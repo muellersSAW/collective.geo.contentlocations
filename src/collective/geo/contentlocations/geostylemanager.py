@@ -1,6 +1,6 @@
 from persistent.dict import PersistentDict
 
-from zope.interface import implements
+from zope.interface import implementer
 from zope.component import getUtility
 from zope.event import notify
 
@@ -16,11 +16,11 @@ from collective.geo.settings.config import GEO_STYLE_FIELDS
 KEY = 'collective.geo.contentlocations.style'
 
 
+@implementer(IGeoCustomFeatureStyle)
 class GeoStyleManager(object):
     """ Adapter to manage features style for content type
     """
 
-    implements(IGeoCustomFeatureStyle)
 
     def __init__(self, context):
 

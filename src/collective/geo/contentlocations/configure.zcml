@@ -14,10 +14,10 @@
 
   <include file="profiles.zcml" />
 
-  <adapter
+  <!-- <adapter
     factory='.indexer.collective_geo_styles'
     name='collective_geo_styles'
-    />
+    /> -->
 
   <subscriber
      handler=".events.reindexStylesSubscriber"
@@ -36,11 +36,11 @@
     factory=".geomanager.GeoManager"
     />
 
-  <adapter
+ <!--  <adapter
     for="Products.Archetypes.interfaces.IBaseObject"
     provides="collective.geo.settings.interfaces.IGeoCustomFeatureStyle"
     factory=".geostylemanager.GeoStyleManager"
-    />
+    /> -->
 
   <adapter
     for="*
@@ -56,8 +56,8 @@
     />
 
   <!-- All AT contents are georeferenceable by default -->
-  <class class="Products.Archetypes.BaseObject.BaseObject">
+ <!--  <class class="Products.Archetypes.BaseObject.BaseObject">
     <implements interface="collective.geo.geographer.interfaces.IGeoreferenceable" />
-  </class>
+  </class> -->
 
 </configure>

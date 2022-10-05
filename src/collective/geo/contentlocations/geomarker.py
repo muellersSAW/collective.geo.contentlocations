@@ -1,5 +1,5 @@
 import logging
-from zope.interface import implements, alsoProvides, noLongerProvides
+from zope.interface import implementer, alsoProvides, noLongerProvides
 from zope.component import queryUtility
 from Products.CMFCore.utils import getToolByName
 
@@ -46,10 +46,10 @@ logger = logging.getLogger('collective.geo.contentlocations')
 #     pu.addPortalMessage(message)
 
 
+@implementer(IGeoMarker)
 class GeoMarker(object):
     """Utility to mark an object IGeoreferenceable
     """
-    implements(IGeoMarker)
 
     def __init__(self, context):
         """
@@ -96,8 +96,8 @@ class GeoMarker(object):
         self.context.reindexObject(idxs=['object_provides'])
 
 
+@implementer(IGeoMarkerUtility)
 class GeoMarkerUtility(object):
-    implements(IGeoMarkerUtility)
 
     def update(self, context, news, olds):
         """ Update only objects with a change of configuration

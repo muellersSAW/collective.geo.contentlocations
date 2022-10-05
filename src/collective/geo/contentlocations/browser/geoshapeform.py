@@ -1,4 +1,4 @@
-from zope.interface import implements
+from zope.interface import implementer
 
 from z3c.form import form, field, button
 
@@ -23,8 +23,8 @@ from zope.component import getUtility
 from plone.registry.interfaces import IRegistry
 
 
+@implementer(IMapView)
 class GeoShapeForm(extensible.ExtensibleForm, form.Form):
-    implements(IMapView)
 
     form_name = "edit_geometry"
     id = 'coordinates-form'

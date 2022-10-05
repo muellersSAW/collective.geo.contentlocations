@@ -28,7 +28,6 @@ setup(name='collective.geo.contentlocations',
       install_requires=[
           'setuptools',
           'Products.CMFCore',
-          'Products.Archetypes',
           'pygeoif > 0.2',
           'collective.geo.mapwidget >= 2.2',
           'collective.z3cform.mapwidget >= 2.1',

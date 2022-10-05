@@ -1,4 +1,4 @@
-from zope.interface import implements
+from zope.interface import implementer
 from zope.lifecycleevent.interfaces import IObjectModifiedEvent
 from . import utils
 
@@ -8,8 +8,8 @@ class IObjectStylesEvent(IObjectModifiedEvent):
     """
 
 
+@implementer(IObjectStylesEvent)
 class ObjectStylesEvent(object):
-    implements(IObjectStylesEvent)
 
     def __init__(self, ob):
         self.object = ob

@@ -1,4 +1,5 @@
 from zope import interface
+from zope.interface import implementer
 
 from collective.geo.contentlocations.interfaces import IGeoManager
 
@@ -7,6 +8,7 @@ from collective.geo.geographer.interfaces import IGeoreferenced
 from collective.geo.geographer.interfaces import IWriteGeoreferenced
 
 
+@implementer(IGeoManager)
 class GeoManager(object):
     """We instanciate a GeoManager on a non georeferenceable context
       >>> geo = GeoManager(None)
@@ -20,7 +22,7 @@ class GeoManager(object):
       now we create a georeferenceable object
       >>> from zope.annotation.interfaces import IAttributeAnnotatable
       >>> class TestContent(object):
-      ...     interface.implements(IGeoreferenceable, IAttributeAnnotatable)
+      ...     interface.@implementer(IGeoreferenceable, IAttributeAnnotatable)
       ...
       ...     def reindexObject(*args, **kw):
       ...         pass
@@ -83,7 +85,6 @@ class GeoManager(object):
 
 
     """
-    interface.implements(IGeoManager)
 
     @property
     def coord_type(self):

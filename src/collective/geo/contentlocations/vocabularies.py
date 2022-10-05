@@ -1,4 +1,4 @@
-from zope.interface import implements
+from zope.interface import implementer
 from zope.schema import vocabulary
 from zope.schema.interfaces import IVocabularyFactory
 
@@ -6,8 +6,8 @@ from collective.geo.contentlocations import ContentLocationsMessageFactory as _
 from collective.geo.contentlocations import COORDTYPE
 
 
+@implementer(IVocabularyFactory)
 class baseVocabulary(object):
-    implements(IVocabularyFactory)
     terms = []
 
     def __call__(self, context):
